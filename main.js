@@ -30,8 +30,16 @@ function build(parent, type, call) {
 }
 
 const display = document.querySelector('#display')
+const btn_generate = document.querySelector('#generate')
 
-Array.from({length: 100}, e => rand_word(3)).forEach(word => {
-  let res = build(display, 'div')
-  res.textContent = word
-})
+function generate() {
+  display.innerHTML = ''
+
+  Array.from({length: 100}, e => rand_word(3)).forEach(word => {
+    let res = build(display, 'div')
+    res.textContent = word
+  })
+}
+generate()
+
+btn_generate.addEventListener('click', generate)
